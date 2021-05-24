@@ -48,6 +48,15 @@ questions_answers = {
   'Lorem ipsum dolor sit amet, consectetur adipiscing4',
   'Lorem ipsum dolor sit amet, consectetur adipiscing5'
   ,3],
+  7: ["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  'Lorem ipsum dolor sit amet, consectetur adipiscing1',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing2',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing3',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing4',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing5',
+
+
+  ]
 }
 
 class Quiz:
