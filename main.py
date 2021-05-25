@@ -80,7 +80,7 @@ class Quiz:
         self.user_label.grid(row=1, padx=20, pady=20) 
         
         #entry box
-        self.entry_box=Entry(self.quiz_frame)
+        self.entry_box=Entry(self.quiz_frame, bg='DarkSeaGreen2')
         self.entry_box.grid(row=2,padx=20, pady=20)
         
         #continue button
