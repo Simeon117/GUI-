@@ -53,11 +53,34 @@ questions_answers = {
   'Lorem ipsum dolor sit amet, consectetur adipiscing2',
   'Lorem ipsum dolor sit amet, consectetur adipiscing3',
   'Lorem ipsum dolor sit amet, consectetur adipiscing4',
-  'Lorem ipsum dolor sit amet, consectetur adipiscing5',
-
-
-  ]
+  'Lorem ipsum dolor sit amet, consectetur adipiscing5'
+  ,4],
+  8: ["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  'Lorem ipsum dolor sit amet, consectetur adipiscing1',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing2',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing3',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing4',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing5'
+  ,1],
+  9: ["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  'Lorem ipsum dolor sit amet, consectetur adipiscing1',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing2',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing3',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing4',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing5'
+  ,3],
+  10:["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  'Lorem ipsum dolor sit amet, consectetur adipiscing1',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing2',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing3',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing4',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing5'
+  ,5],
 }
+
+def  randomizer():
+  global qnum
+  qnum = random.randint(1,10)
 
 class Quiz:
     def __init__(self, parent):#constructor, The __init__() function is called automatically every time the class is being used to create a new object.
