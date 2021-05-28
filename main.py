@@ -1,6 +1,7 @@
 from tkinter import *
-names = []
+import random
 
+names = []
 global questions_answers
 asked = []
 score = 0
@@ -87,6 +88,7 @@ def  randomiser():
   elif qnum in asked:
     randomiser()  
 
+
 class Quiz:
     def __init__(self, parent):#constructor, The __init__() function is called automatically every time the class is being used to create a new object.
  
@@ -126,16 +128,31 @@ class Quiz:
         names.append(name) #
         print(names)
         self.continue_button.destroy()
-        self.entry_box.destroy() #
         self.quiz_frame.destroy()
+
+class Quiz:    
+  def __init__(self, parent):#constructor, The __init__() function is called automatically every time the class is being used to create a new object.
+ 
+        background_color="DarkSeaGreen1"#
+
+        #frame set up
+        self.quiz_frame=Frame(parent, bg = background_color, padx=100, pady=100)
+        #
+
+        self.quiz_frame.grid()#
+               
+        #widgets goes below
+        self.heading_label = Label(self.quiz_frame, text="Health Survey", font = ("Helvetica","18","bold"),bg="DarkSeaGreen2")
+        self.heading_label.grid(row = 0, padx = 20) 
+        self.var1 = IntVar() #holds value of radio buttons
+
       
            
 
-randomiser
+randomiser()
 if __name__ == "__main__":
     root = Tk()
     root.title("Health Survey") 
-
     quiz_instance = Quiz(root) #instantiation, making an instance of the class Quiz
     root.mainloop()#so the frame doesnt dissapear
  
