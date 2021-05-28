@@ -129,6 +129,7 @@ class Quiz:
         print(names)
         self.continue_button.destroy()
         self.quiz_frame.destroy()
+        Quiz(root)
 
 class Quiz:    
   def __init__(self, parent):#constructor, The __init__() function is called automatically every time the class is being used to create a new object.
@@ -137,14 +138,22 @@ class Quiz:
 
         #frame set up
         self.quiz_frame=Frame(parent, bg = background_color, padx=100, pady=100)
-        #
-
         self.quiz_frame.grid()#
+
+        randomiser() #randomiser will randomly pick a question number which is qnum  
                
         #widgets goes below
-        self.heading_label = Label(self.quiz_frame, text="Health Survey", font = ("Helvetica","18","bold"),bg="DarkSeaGreen2")
-        self.heading_label.grid(row = 0, padx = 20) 
+        self.question_label = Label(self.quiz_frame, text = questions_answers[qnum][0], font = ("Helvetica","18","bold"),bg="DarkSeaGreen2")
+        self.question_label.grid(row = 0, padx = 20) 
+
         self.var1 = IntVar() #holds value of radio buttons
+
+        #first radio button to hold first choice answer 
+        
+        #radio button 1
+        self.rb1 = Radiobutton(self.quiz_frame, Text=questions_answers[qnum][1], font=("Helvetica","12"), bg=background_color, value=1, padx = 10, pady = 10, Variable=self.var1, background = background_color)
+        
+        self.rb1.grid(row = 2, sticky=W)
 
       
            
