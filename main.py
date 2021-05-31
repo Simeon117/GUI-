@@ -201,7 +201,9 @@ class Quiz:
 
         se;f.rb10.grid(row = 10, sticky=W)
 
-        #confrim answer Button
+        #confrim answer button
+        self.confirm_button= Button(self.quiz_frame, text="Confirm", bg="DarkSeaGreen2")
+        self.confirm_button.grid(row = 11)
            
 
 randomiser()
