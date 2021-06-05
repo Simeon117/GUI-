@@ -148,71 +148,16 @@ class Quiz:
         self.var1 = IntVar() #holds value of radio buttons
 
         #first radio button to hold first choice answer 
-
         
         #radio button 1
-        self.rb1 = Radiobutton(self.quiz_frame, Text = questions_answers[qnum][1], font = ("Helvetica", "12"), bg = background_color, value = 2, padx = 10, pady = 10, Variable = self.var1, indicator = 0, background = background_color)
+        self.rb1 = Radiobutton (self.quiz_frame, text = questions_answers[qnum][1], font = ("Helvetica", "14"), bg = background_color, value = 1, variable = self.var1, pady = 10)
         
         self.rb1.grid(row = 1, sticky=W)
-
-        #radio button 2
-        self.rb2 = Radiobutton(self.quiz_frame, Text = questions_answers[qnum][2], font=("Helvetica","12"), bg=background_color, value=2, padx = 10, pady = 10, Variable=self.var1, indicator = 0, background = background_color)
-        
-        self.rb2.grid(row = 2, sticky=W)
-
-        #radio button 3
-        self.rb3 = Radiobutton(self.quiz_frame, Text=questions_answers[qnum][3], font=("Helvetica","12"), bg=background_color, value=3, padx = 10, pady = 10, Variable=self.var1, indicator = 0, background = background_color)
-        
-        self.rb3.grid(row = 3, sticky=W)
-
-        #radio button 4
-        self.rb4 = Radiobutton(self.quiz_frame, Text=questions_answers [qnum][4], font=("Helveitca", "12"), bg=background_color, value = 4, padx = 10, pady = 10, Variable=self.var1, indicator = 0, background = background_color)
-
-        self.rb4.grid(row = 4, sticky=W)
-
-        #radio button 5
-        self.rb5 = Radiobutton(self.quiz_frame, Text=questions_answers [qnum][5], font=("Helvetica", "12"), bg=background_color, value = 5, padx = 10, pady = 10, Variable=self.var1, indicator = 0, background = background_color)
-
-        self.rb5.grid(row = 5, sticky=W)
-
-        #radio button 6
-        self.rb6 = Radiobuttob(self.quiz_frame, Text=questions_answers [qnum][6], font=("Helvetica", "12"), bg=background_color, value=6, padx = 10, pady = 10, Variable=self.var1, indicator = 0, background = background_color)
-
-        self.rb6.grid(row = 6, sticky=W)
-
-        #radio button 7
-        self.rb7 = Radiobutton(self.quiz_frame, Text=questions_answers[qnum][7], font=("Helvetica", "12"), bg=background_color, value=7, padx = 10, pady = 10, Variable=self.var1, indicator = 0, background = background_color)
-
-        self.rb7.grid(row = 7, sticky=W)
-
-        #radio button 8
-        self.rb8 = Radiobutton(self.quiz_frame, Text=questions_answers [qnum][8], font=("Helvetica", "12"), bg=background_color, value = 8, padx = 10, pady = 10, Variable=self.var1, indicator = 0, background = background_color)
-
-        self.rb8.grid(row = 8, sticky=W)
-
-        #radio button 9
-        self.rb9 = Radiobutton(self.quiz_frame, Text=questions_answers [qnum][9], font=("Helvetica", "12"), bg=background_color, value = 9, padx = 10, pady = 10, Variable=self.var1, indicator = 0, background = background_color)
-
-        self.rb9.grid(row = 9, sticky=W)
-
-        #radio button 10
-        self.rb10 = Radiobutton(self.question_label, Text=questions_answers [qnum][10], font=("Helvetica", "12"), bg=background_color, value = 10, padx = 10, pady = 10, Variable=self.var1, indicator = 0, background = background_color)
-
-        se;f.rb10.grid(row = 10, sticky=W)
-
-        #confrim answer button
-        self.confirm_button= Button(self.quiz_frame, Text="Confirm", bg="DarkSeaGreen2")
-        self.confirm_button.grid(row = 11)
-
-        #score label
-        self.score_label = Label (self.quiz_frame, Text = "SCORE", font=("Tw Cen MT", "16"), bg=background_color)
-        self.score_label.grid (row = 12, padx = 10, pady = 1)
-           
 
 randomiser()
 if __name__ == "__main__":
     root = Tk()
     root.title("Health Survey") 
-    quizStarter_object = QuizStater(root) #instantiation, making an instance of the class Quiz
+    quizStarter_object = QuizStarter(root) #instantiation, making an instance of the class Quiz
     root.mainloop() #so the frame doesnt dissapear
  
