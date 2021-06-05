@@ -89,7 +89,7 @@ def  randomiser():
     randomiser()  
 
 
-class Quiz:
+class QuizStarter:
     def __init__(self, parent):#constructor, The __init__() function is called automatically every time the class is being used to create a new object.
  
         background_color="DarkSeaGreen1"#
@@ -213,6 +213,6 @@ randomiser()
 if __name__ == "__main__":
     root = Tk()
     root.title("Health Survey") 
-    quiz_instance = Quiz(root) #instantiation, making an instance of the class Quiz
+    quizStarter_object = QuizStater(root) #instantiation, making an instance of the class Quiz
     root.mainloop() #so the frame doesnt dissapear
  
