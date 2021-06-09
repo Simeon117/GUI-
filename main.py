@@ -143,16 +143,39 @@ class Quiz:
                
         #widgets goes below
         self.question_label = Label (self.quiz_frame, text = questions_answers[qnum][0], font = ("Helvetica","18","bold"),bg="DarkSeaGreen2")
-        self.question_label.grid(row = 0, padx = 20) 
+        self.question_label.grid(row = 0, padx = 20, pady = 10) 
 
         self.var1 = IntVar() #holds value of radio buttons
 
         #first radio button to hold first choice answer 
         
-        #radio button 1
-        self.rb1 = Radiobutton (self.quiz_frame, text = questions_answers[qnum][1], font = ("Helvetica", "14"), bg = background_color, value = 1, variable = self.var1, pady = 10)
+        #Radiobutton 1
+        self.rb1 = Radiobutton (self.quiz_frame, text = questions_answers[qnum][1], font = ("Helvetica", "14"), bg = background_color, value = 1, variable = self.var1, padx = 10 ,pady = 10)
         
-        self.rb1.grid(row = 1, sticky=W)
+        self.rb1.grid(row = 1, sticky = W)
+
+        #Radiobutton 2
+        
+        self.rb2 = Radiobutton (self.quiz_frame, text = questions_answers[qnum][2], font = ("Helvetica", "14"), bg = background_color, value = 2, variable = self.var1, padx = 10, pady = 10)
+
+        self.rb2.grid (row = 2, sticky = W)
+
+        #Radiobutton 3
+        self.rb3 = Radiobutton (self.quiz_frame, text = questions_answers[qnum][3], font = ("Helvetica", "14"), bg = background_color, value = 3, variable = self.var1, padx = 10, pady=10)
+
+        self.rb3.grid (row = 3, sticky = W)
+
+        #Radiobutton 4
+        self.rb4 = Radiobutton (self.quiz_frame, text = questions_answers[qnum][4], font = ("Helvetica", "14"), bg = background_color, value = 4, variable = self.var1, padx = 10, pady = 10)
+
+        self.rb4.grid (row = 4, sticky = W)
+
+        #Radiobuton 5
+        self.rb5 = Radiobutton (self.quiz_frame, text = questions_answers[qnum][5], font = ("Helvetica", "14"), bg = background_color, value = 5, variable = self.var1, padx = 10, pady = 10)
+
+        self.rb5.grid (row = 5, sticky = W)
+
+      
 
 randomiser()
 if __name__ == "__main__":
@@ -160,4 +183,3 @@ if __name__ == "__main__":
     root.title("Health Survey") 
     quizStarter_object = QuizStarter(root) #instantiation, making an instance of the class Quiz
     root.mainloop() #so the frame doesnt dissapear
- 
