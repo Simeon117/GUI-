@@ -142,15 +142,15 @@ class Quiz:
         randomiser() #randomiser will randomly pick a question number which is qnum  
                
         #widgets goes below
-        self.question_label = Label (self.quiz_frame, text = questions_answers[qnum][0], font = ("Helvetica","18","bold"),bg="DarkSeaGreen2")
-        self.question_label.grid(row = 0, padx = 20, pady = 10) 
+        self.question_label = Label (self.quiz_frame, text = questions_answers[qnum][0], font = ("Helvetica","18","bold"), bg="DarkSeaGreen2")
+        self.question_label.grid(row = 0, padx = 10) 
 
         self.var1 = IntVar() #holds value of radio buttons
 
         #first radio button to hold first choice answer 
         
         #Radiobutton 1
-        self.rb1 = Radiobutton (self.quiz_frame, text = questions_answers[qnum][1], font = ("Helvetica", "14"), bg = background_color, value = 1, variable = self.var1, padx = 10 ,pady = 10)
+        self.rb1 = Radiobutton (self.quiz_frame, text = questions_answers[qnum][1], font = ("Helvetica", "14"), bg = background_color, value = 1, variable = self.var1, padx = 10, pady = 10)
         
         self.rb1.grid(row = 1, sticky = W)
 
@@ -170,10 +170,21 @@ class Quiz:
 
         self.rb4.grid (row = 4, sticky = W)
 
-        #Radiobuton 5
+        #Radiobutton 5
         self.rb5 = Radiobutton (self.quiz_frame, text = questions_answers[qnum][5], font = ("Helvetica", "14"), bg = background_color, value = 5, variable = self.var1, padx = 10, pady = 10)
 
         self.rb5.grid (row = 5, sticky = W)
+
+
+        #Confirm button
+        self.quiz_instance = Button (self.quiz_frame, text = "Confirm", font = ("Helvetica", "13", "bold"), bg = background_color)
+
+        self.quiz_instance.grid (row = 6, padx = 5, pady = 5)
+
+        #Score label
+        self.score_label = Label (self.quiz_frame, text = "SCORE", font = ("Helvetica", "15"), bg = background_color,)
+
+        self.score_label.grid (row = 7, padx = 10, pady = 1)
 
       
 
