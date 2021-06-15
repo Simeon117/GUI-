@@ -15,63 +15,63 @@ questions_answers = {
   'Lorem ipsum dolor sit amet, consectetur adipiscing4', # Item 5, index 4 will be the fourth choice
   'Lorem ipsum dolor sit amet, consectetur adipiscing5'# Item 6, index 5 will be the write statement we need to dsiplay th right stetment if the user enters the wrong choice
   ,3], # Item 7, index 6 will be the postion of the right answer (ubdex where right answer sits), this will be our check if answer is correct or no
-  2: ["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  2: ["1Lorem ipsum dolor sit amet, consectetur adipiscing?",
   'Lorem ipsum dolor sit amet, consectetur adipiscing1',
   'Lorem ipsum dolor sit amet, consectetur adipiscing2',
   'Lorem ipsum dolor sit amet, consectetur adipiscing3',
   'Lorem ipsum dolor sit amet, consectetur adipiscing4',
   'Lorem ipsum dolor sit amet, consectetur adipiscing5'
   ,1],
-  3: ["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  3: ["2Lorem ipsum dolor sit amet, consectetur adipiscing?",
   'Lorem ipsum dolor sit amet, consectetur adipiscing1',
   'Lorem ipsum dolor sit amet, consectetur adipiscing2',
   'Lorem ipsum dolor sit amet, consectetur adipiscing3',
   'Lorem ipsum dolor sit amet, consectetur adipiscing4',
   'Lorem ipsum dolor sit amet, consectetur adipiscing5'
   ,2],
-  4: ["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  4: ["3Lorem ipsum dolor sit amet, consectetur adipiscing?",
   'Lorem ipsum dolor sit amet, consectetur adipiscing1',
   'Lorem ipsum dolor sit amet, consectetur adipiscing2',
   'Lorem ipsum dolor sit amet, consectetur adipiscing3',
   'Lorem ipsum dolor sit amet, consectetur adipiscing4',
   'Lorem ipsum dolor sit amet, consectetur adipiscing5'
   ,2],
-  5: ["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  5: ["4Lorem ipsum dolor sit amet, consectetur adipiscing?",
   'Lorem ipsum dolor sit amet, consectetur adipiscing1',
   'Lorem ipsum dolor sit amet, consectetur adipiscing2',
   'Lorem ipsum dolor sit amet, consectetur adipiscing3',
   'Lorem ipsum dolor sit amet, consectetur adipiscing4',
   'Lorem ipsum dolor sit amet, consectetur adipiscing5'
   ,5],
-  6: ["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  6: ["5Lorem ipsum dolor sit amet, consectetur adipiscing?",
   'Lorem ipsum dolor sit amet, consectetur adipiscing1',
   'Lorem ipsum dolor sit amet, consectetur adipiscing2',
   'Lorem ipsum dolor sit amet, consectetur adipiscing3',
   'Lorem ipsum dolor sit amet, consectetur adipiscing4',
   'Lorem ipsum dolor sit amet, consectetur adipiscing5'
   ,3],
-  7: ["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  7: ["6Lorem ipsum dolor sit amet, consectetur adipiscing?",
   'Lorem ipsum dolor sit amet, consectetur adipiscing1',
   'Lorem ipsum dolor sit amet, consectetur adipiscing2',
   'Lorem ipsum dolor sit amet, consectetur adipiscing3',
   'Lorem ipsum dolor sit amet, consectetur adipiscing4',
   'Lorem ipsum dolor sit amet, consectetur adipiscing5'
   ,4],
-  8: ["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  8: ["7Lorem ipsum dolor sit amet, consectetur adipiscing?",
   'Lorem ipsum dolor sit amet, consectetur adipiscing1',
   'Lorem ipsum dolor sit amet, consectetur adipiscing2',
   'Lorem ipsum dolor sit amet, consectetur adipiscing3',
   'Lorem ipsum dolor sit amet, consectetur adipiscing4',
   'Lorem ipsum dolor sit amet, consectetur adipiscing5'
   ,1],
-  9: ["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  9: ["8Lorem ipsum dolor sit amet, consectetur adipiscing?",
   'Lorem ipsum dolor sit amet, consectetur adipiscing1',
   'Lorem ipsum dolor sit amet, consectetur adipiscing2',
   'Lorem ipsum dolor sit amet, consectetur adipiscing3',
   'Lorem ipsum dolor sit amet, consectetur adipiscing4',
   'Lorem ipsum dolor sit amet, consectetur adipiscing5'
   ,3],
-  10:["Lorem ipsum dolor sit amet, consectetur adipiscing?",
+  10:["9Lorem ipsum dolor sit amet, consectetur adipiscing?",
   'Lorem ipsum dolor sit amet, consectetur adipiscing1',
   'Lorem ipsum dolor sit amet, consectetur adipiscing2',
   'Lorem ipsum dolor sit amet, consectetur adipiscing3',
@@ -177,16 +177,40 @@ class Quiz:
 
 
         #Confirm button
-        self.quiz_instance = Button (self.quiz_frame, text = "Confirm", font = ("Helvetica", "13", "bold"), bg = background_color)
+        self.confirm_button = Button (self.quiz_frame, text = "Confirm", font = ("Helvetica", "13", "bold"), bg = background_color, command = self.test_progress)
 
-        self.quiz_instance.grid (row = 6, padx = 5, pady = 5)
+        self.confirm_button.grid (row = 6, padx = 5, pady = 5)
 
         #Score label
         self.score_label = Label (self.quiz_frame, text = "SCORE", font = ("Helvetica", "15"), bg = background_color,)
 
         self.score_label.grid (row = 7, padx = 10, pady = 1)
 
-      
+        #Method showing the next questions data
+  def questions_setup (self):
+    randomiser()
+    self.var1.set(0)
+    self.question_label.config(text = questions_answers[qnum][0])
+    self.rb1.config(text = questions_answers[qnum][1])
+    self.rb2.config(text = questions_answers[qnum][2])
+    self.rb3.config(text = questions_answers[qnum][3])
+    self.rb4.config(text = questions_answers[qnum][4])
+    self.rb5.config(text = questions_answers[qnum][5])
+
+  #This is the method that would get invoked with confrim answer button is clicked, to take care of test_progress
+
+  def test_progress(self):
+    global score
+    scr_label = self.score_label
+    choice = self.var1.get()
+    if len(asked)>9:
+      if choice == questions_answers[qnum][6]:
+        score +=1 score
+        scr_label.configure
+
+
+        
+
 
 randomiser()
 if __name__ == "__main__":
