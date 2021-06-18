@@ -203,14 +203,32 @@ class Quiz:
     global score
     scr_label = self.score_label
     choice = self.var1.get()
-    if len(asked)>9:
-      if choice == questions_answers[qnum][6]:
-        score +=1 score
-        scr_label.configure
+    if len(asked)>9: #if the question is last
+      if choice == questions_answers[qnum][6]: #if the last question is the correct answer
+        score+=1 
+        scr_label.configure(text = score)
+        self.confirm_button.config(text="Confirm")
+      else: #if the last question is the incorrect answer
+        score+=0
+        scr_label.configure(text = " The correct answer was " + questions_answers[qnum][5])
+        self.confirm_button.config(text="Confirm")
+    else: #if it is not the last question
+      if choice==0: #checks if the user has made a choice
+        self.confirm_button.config(text="Try again please, you didnt select anyhting")
+        choice=self.var1.get()
+      else: #if a choice was made and its not the last question
+        if choice == questions_answers[qnum][6]: #if thier choice is correct
+          score+=1
+          scr_label.configure(text=scre)
+          self.confirm_button.config(text="Confirm")
+          self.question_setup() #execute the method to move on to the next question 
+        else: #if the choice was wrong
+          score+=0
+          scr_label.configure(text="The correct answer was: " + questions_answers[qnum][5])
+          self.confirm_button.configure(text="Confirm")
+          self.questions_setup()
 
-
-        
-
+      
 
 randomiser()
 if __name__ == "__main__":
