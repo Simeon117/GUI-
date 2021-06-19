@@ -125,10 +125,16 @@ class QuizStarter:
 
     def name_collection(self):
         name = self.entry_box.get()
-        names.append(name) #
-        print(names)
-        self.quiz_frame.destroy()
-        Quiz(root)
+        if name.strip() != "" and len(name) <= 15:
+          names.append(name) #
+          print(names)
+          self.quiz_frame.destroy()
+          Quiz(root)
+        elif len(name)  >15:
+          self.user_label.config(text="Please enter a name that is not more than 15 characters", fg="red")
+        elif len(name) ==0:
+          self.user_label.config(text="You can not leave name empty", fg="red")
+       
 
 class Quiz:    
   def __init__(self, parent):#constructor, The __init__() function is called automatically every time the class is being used to create a new object.
