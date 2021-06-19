@@ -112,10 +112,16 @@ class QuizStarter:
         #entry box
         self.entry_box = Entry(self.quiz_frame, bg = 'DarkSeaGreen2')
         self.entry_box.grid(row=2,padx=20, pady=20)
+
+        self.exit_button = Button (self.quiz_frame, text = "Exit", font = ("Helvetica", "13", "bold"), bg="red", command=self.quiz_frame.destroy)
+        self.exit_button.grid(row=4, padx=5, pady=5)
+
         
         #continue button
         self.continue_button = Button(self.quiz_frame, text="Enter", font =("Helvetica", "13", "bold"), bg = "DarkSeaGreen2", command = self.name_collection)
-        self.continue_button.grid(row=3,  padx = 20)        
+        self.continue_button.grid(row=3,  padx = 20)  
+
+
         
         #image
         #logo = PhotoImage(file="road.gif")
@@ -225,7 +231,7 @@ class Quiz:
       else: #if a choice was made and its not the last question
         if choice == questions_answers[qnum][6]: #if thier choice is correct
           score+=1
-          scr_label.configure(text=scre)
+          scr_label.configure(text=score)
           self.confirm_button.config(text="Confirm")
           self.question_setup() #execute the method to move on to the next question 
         else: #if the choice was wrong
