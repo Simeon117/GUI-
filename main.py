@@ -193,6 +193,10 @@ class Quiz:
 
         self.confirm_button.grid (row = 6, padx = 5, pady = 5)
 
+        #Quit Button
+        self.quit= Button(self.quiz_frame, text="Quit", font=("Helvetica", "13", "bold"), bg="IndianRed1", command=self.end_screen)
+        self.quit.grid(row=7, column=3, sticky=E, padx=5, pady=5)
+
         #Score label
         self.score_label = Label (self.quiz_frame, text = "SCORE", font = ("Helvetica", "15"), bg = background_color,)
 
@@ -220,10 +224,13 @@ class Quiz:
         score+=1 
         scr_label.configure(text = score)
         self.confirm_button.config(text="Confirm")
+        self.end_screen()
       else: #if the last question is the incorrect answer
+        print(choice)
         score+=0
         scr_label.configure(text = " The correct answer was " + questions_answers[qnum][5])
         self.confirm_button.config(text="Confirm")
+        self.end_screen
     else: #if it is not the last question
       if choice==0: #checks if the user has made a choice
         self.confirm_button.config(text="Try again please, you didnt select anyhting")
@@ -233,13 +240,35 @@ class Quiz:
           score+=1
           scr_label.configure(text=score)
           self.confirm_button.config(text="Confirm")
-          self.question_setup() #execute the method to move on to the next question 
+          self.questions_setup() #execute the method to move on to the next question 
         else: #if the choice was wrong
+          print(choice)
           score+=0
           scr_label.configure(text="The correct answer was: " + questions_answers[qnum][5])
           self.confirm_button.configure(text="Confirm")
           self.questions_setup()
 
+  def end_screen(self):
+    root.withdraw()
+    open_endscrn=End()
+
+class End:
+  def __init__(self):
+    background = "DarkSeaGreen1"
+    self.end_box = Toplevel(root)
+    self.end_box.title("End Box")
+
+    self.end_frame = Frame (self.end_box, width=1000, height=1000, bg=background)
+    self.end_frame.grid()
+
+    end_heading = Label (self.end_frame, text = "Well Done", font=("Helvetica", "22", "bold"), bg=background, pady=15)
+    end_heading.grid(row=0)
+
+    exit_button = Button (self.end_frame, text="Exit", width=10, bg="IndianRed1", font=("Helvetica", "12", "bold"), command=self.close_end)
+    exit_button.grid(row = 4, pady = 20)
+  def close_end(self):
+    self.end_box.destroy()
+    root.withdraw()
       
 
 randomiser()
