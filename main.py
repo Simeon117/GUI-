@@ -195,7 +195,7 @@ class Quiz:
 
         #Quit Button
         self.quit= Button(self.quiz_frame, text="Quit", font=("Helvetica", "13", "bold"), bg="IndianRed1", command=self.end_screen)
-        self.quit.grid(row=7, column=3, sticky=E, padx=5, pady=5)
+        self.quit.grid(row=7, sticky=E, padx=5, pady=5)
 
         #Score label
         self.score_label = Label (self.quiz_frame, text = "SCORE", font = ("Helvetica", "15"), bg = background_color,)
