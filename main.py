@@ -108,18 +108,20 @@ class QuizStarter:
         #label for username
         self.user_label = Label(self.quiz_frame, text = "Enter your name below to get started", font = ("Helvtica","16"),bg = "DarkSeaGreen2")
         self.user_label.grid(row = 1, padx = 20, pady = 20) 
+
+        self.error_label= Label(self.quiz_frame, bg = background_color)
+        self.error_label.grid(row = 6, padx = 20, pady =20)
         
         #entry box
         self.entry_box = Entry(self.quiz_frame, bg = 'DarkSeaGreen2')
-        self.entry_box.grid(row=2,padx=20, pady=20)
+        self.entry_box.grid(row=3,padx=20, pady=20)
 
-        self.exit_button = Button (self.quiz_frame, text = "Exit", font = ("Helvetica", "13", "bold"), bg="red", command=self.quiz_frame.destroy)
-        self.exit_button.grid(row=4, padx=5, pady=5)
+        self.exit_button = Button (self.quiz_frame, text = "Exit", font = ("Helvetica", "13", "bold"), bg="IndianRed1", command=self.quiz_frame.destroy)
+        self.exit_button.grid(row=5, padx=5, pady=5)
 
-        
         #continue button
         self.continue_button = Button(self.quiz_frame, text="Enter", font =("Helvetica", "13", "bold"), bg = "DarkSeaGreen2", command = self.name_collection)
-        self.continue_button.grid(row=3,  padx = 20)  
+        self.continue_button.grid(row=4,  padx = 20)  
 
 
         
@@ -137,9 +139,9 @@ class QuizStarter:
           self.quiz_frame.destroy()
           Quiz(root)
         elif len(name)  >15:
-          self.user_label.config(text="Please enter a name that is not more than 15 characters", fg="red")
+          self.error_label.config(text="Please enter a name that is not more than 15 characters", fg="IndianRed1")
         elif len(name) ==0:
-          self.user_label.config(text="You can not leave name empty", fg="red")
+          self.error_label.config(text="Please enter a name", fg="IndianRed1")
        
 
 class Quiz:    
@@ -195,7 +197,7 @@ class Quiz:
 
         #Quit Button
         self.quit= Button(self.quiz_frame, text="Quit", font=("Helvetica", "13", "bold"), bg="IndianRed1", command=self.end_screen)
-        self.quit.grid(row=7, sticky=E, padx=5, pady=5)
+        self.quit.grid(row=8, sticky=E, padx=10, pady=20)
 
         #Score label
         self.score_label = Label (self.quiz_frame, text = "SCORE", font = ("Helvetica", "15"), bg = background_color,)
