@@ -195,14 +195,16 @@ class Quiz:
 
         self.confirm_button.grid (row = 6, padx = 5, pady = 5)
 
-        #Quit Button
-        self.quit= Button(self.quiz_frame, text="Quit", font=("Helvetica", "13", "bold"), bg="IndianRed1", command=self.end_screen)
-        self.quit.grid(row=8, sticky=E, padx=10, pady=20)
-
         #Score label
         self.score_label = Label (self.quiz_frame, text = "SCORE", font = ("Helvetica", "15"), bg = background_color,)
 
         self.score_label.grid (row = 7, padx = 10, pady = 1)
+
+        #Quit Button
+        self.quit= Button(self.quiz_frame, text="Quit", font=("Helvetica", "13", "bold"), bg="IndianRed1", command=self.end_screen)
+        self.quit.grid(row=8, sticky=E, padx=10, pady=20)
+
+        
 
         #Method showing the next questions data
   def questions_setup (self):
@@ -240,7 +242,7 @@ class Quiz:
       else: #if a choice was made and its not the last question
         if choice == questions_answers[qnum][6]: #if thier choice is correct
           score+=1
-          scr_label.configure(text=score)
+          scr_label.configure(text = score)
           self.confirm_button.config(text="Confirm")
           self.questions_setup() #execute the method to move on to the next question 
         else: #if the choice was wrong
@@ -248,11 +250,47 @@ class Quiz:
           score+=0
           scr_label.configure(text="The correct answer was: " + questions_answers[qnum][5])
           self.confirm_button.configure(text="Confirm")
-          self.questions_setup()
+          self.questions_setup() 
+
 
   def end_screen(self):
     root.withdraw()
-    open_endscrn=End()
+    name=names[0]
+    file=open("leaderBoard.txt", "a")
+
+    if name == "admin_reset":
+      file=open("leaderBoard.txt", "W")
+
+    else:
+      file.write(str(score))
+      file.write(" - ")
+      file.write(name+"\n")
+      file.close()
+
+    inputFile= open("leaderBoard.txt", "r")
+    lineList = inputFile.readlines()
+    lineList.sort()
+    top=[]
+    top5=(lineList[-5:])
+
+    for line in top5:
+      point=line.split(" - ")
+      top.append((int(point[0]), point[1]))
+    file.close()
+    top.sort()
+    top.reverse()
+    
+    return_string = ""
+    for i in range (len(top)):
+      return_string +="{} - {}\n".format(top[i][0], top[i][1])
+    print(return_string)
+
+    open_end_screen=End()
+    open_end_screen.listLabel.config(text=return_string)
+
+  def close_end(self):
+    self.end_box.destroy()
+    root.withdraw()
 
 class End:
   def __init__(self):
@@ -263,16 +301,16 @@ class End:
     self.end_frame = Frame (self.end_box, width=1000, height=1000, bg=background)
     self.end_frame.grid()
 
+    self.listLabel = Label (self.end_frame, text="1st Place Avaliable", font = ("Helvetica", "18"), width = 40, bg = background, padx=10, pady=10)
+    self.listLabel.grid(column=0, row=2)
+
     end_heading = Label (self.end_frame, text = "Well Done", font=("Helvetica", "22", "bold"), bg=background, pady=15)
     end_heading.grid(row=0)
 
     exit_button = Button (self.end_frame, text="Exit", width=10, bg="IndianRed1", font=("Helvetica", "12", "bold"), command=self.close_end)
     exit_button.grid(row = 4, pady = 20)
-  def close_end(self):
-    self.end_box.destroy()
-    root.withdraw()
-      
 
+   
 randomiser()
 if __name__ == "__main__":
     root = Tk()
