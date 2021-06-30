@@ -64,7 +64,7 @@ class QuizStarter:
           self.quiz_frame.destroy()
           Quiz(root)
         elif len(name)  >15:
-          self.error_label.config(text="Please enter a name that is not more than 15 characters", fg="IndianRed1")
+          self.error_label.config(text="Please enter a name that is less than 15 characters", fg="IndianRed1")
         elif len(name) ==0:
           self.error_label.config(text="Please enter a name", fg="IndianRed1")
        
@@ -80,12 +80,12 @@ class Quiz:
           'School Hall', # Item 5, index 4 will be the fourth choice
           'Cathedral Hall'# Item 6, index 5 will be the write statement we need to dsiplay the right stetment if the user enters the wrong choice
           ,3], # Item 7, index 6 will be the postion of the right answer (ubdex where right answer sits), this will be our check if answer is correct or no
-          2: ["1Lorem ipsum dolor sit amet, consectetur adipiscing?",
-          'Lorem ipsum dolor sit amet, consectetur adipiscing1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing2',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing3',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing4',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing5'
+          2: ["How many fields are there?",
+          '2',
+          '4',
+          '7',
+          '3',
+          '6'
           ,1],
           3: ["2Lorem ipsum dolor sit amet, consectetur adipiscing?",
           'Lorem ipsum dolor sit amet, consectetur adipiscing1',

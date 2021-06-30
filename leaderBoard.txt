@@ -5,3 +5,4 @@
 1 - tfhfjhg
 1 - jj
 0 - l
+3 - wasd
